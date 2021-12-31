@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- dao에서 namespace의 값으로 접근함, namespace는 유일해야함 -->
+<mapper namespace="FreeBoardDAO">
+
+	<!-- 전체 게시글 개수 /페이징할때 필요 -->
+	<select id="getBoardListCnt" resultType="int">
+		SELECT	count(*) as listCnt	FROM freeboard
+	</select>
+
+	<!-- 게시글리스트 가져오기 /검색기능은 if문으로 처리 /가져올때 페이징에서 지정한 개수만큼 가져오기 limit로 처리-->
+	<select id="getFreeBoardList" resultType="freeboard">
+		select freeseq, title, writer, content, date_format(regdata, '%y-%m-%d') as regdata, cnt from freeboard
+		where 1 = 1
+		<if test="searchSelect == 'TITLE'">
+			AND title like '%${searchText}%'
+		</if>
+		<if test="searchSelect == 'WRITER'">
+			AND writer like '%${searchText}%'
+		</if>	
+		order by freeseq desc LIMIT #{startList}, #{listSize}
+	</select>
+
+	<!-- 해당 게시글 가져오기 -->
+	<select id="getFreeBoard" resultType="freeboard">
+		select * from freeboard where freeseq =#{freeseq}
+	</select>
+	
+	<!-- 게시글 조회수+1 -->
+	<update id="updateCntFreeBoard">
+		update freeboard set cnt=cnt+1 where freeseq =#{freeseq}
+	</update>
+		
+	<!-- 게시글 쓰기 -->
+	<insert id="insertFreeBoard">
+		INSERT into freeboard (title,writer,content, id)
+		VALUES(#{title},#{writer},#{content}, #{id})
+	</insert>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateFreeBoard">
+		update freeboard 
+		set title=#{title},writer=#{writer},content=#{content} where freeseq =#{freeseq}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteFreeBoard">
+		delete from freeboard where freeseq = #{freeseq}
+	</delete>
+	
+	<!-- 게시글 리스트 가져오기 /json 최신글 5개만 보여주기-->	
+	<select id="getFreeBoardListIndexJson" resultType="freeboard">
+		select * from freeboard order by freeseq desc limit 0,5;
+	</select>
+	
+	<!-- 죽은 코드 	
+	<select id="searchFreeBoard" resultType="freeboard">
+		select * from freeboard order by freeseq desc
+	</select>
+	-->
+
+</mapper>

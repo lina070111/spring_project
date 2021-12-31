@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- dao에서 namespace의 값으로 접근함, namespace는 유일해야함 -->
+<mapper namespace="CommentDAO">
+
+	<!-- freeboard 게시글의 댓글 가져오기 /freeboardController에서 요청 -->
+	<select id="getCommentList" resultType="comment">
+		select * from comment
+		where freeseq=#{freeseq} order by coseq desc
+	</select>
+
+
+	<!-- 댓글 삽입 -->
+	<insert id="insertComment">
+		INSERT into comment (writer,content,freeseq)
+		VALUES(#{writer},#{content},#{freeseq})
+	</insert>
+
+	<!-- 댓글 수정 /json으로 사용 -->
+	<update id="updateComment">
+		update comment set content=#{content} where coseq=#{coseq}
+	</update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment">
+		delete from comment where coseq = #{coseq}
+	</delete>
+
+	<!-- freevoard 게시글이 삭제될때 댓글 전부 삭제 / freeboardController에서 요청 -->
+	<delete id="deleteALLComment">
+		delete from comment where freeseq = #{freeseq}
+	</delete>
+
+	<!-- 댓글가져오기 /json으로 사용예정 -->
+	<select id="getCommentJson" resultType="comment">
+		select * from comment
+		where coseq =#{coseq}
+	</select>
+
+	<!-- 죽은코드 <select id="getCommnet" resultType="comment"> select * from comment 
+		where coseq =#{coseq} </select> -->
+</mapper>

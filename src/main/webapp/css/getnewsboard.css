@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#warp{width: 700px;margin: 0 auto;}
+#newsTable{width: 700px;}
+#newsTitle{font-size: 25px; padding: 20px 0 10px 0; font-weight: bold; text-align: left; border-top: 1px solid #c0c0c0; }
+#writer{font-size: 12px; border-bottom: 1px solid #c0c0c0; padding-bottom: 15px; color: #686868;}
+#newsImg{padding-left: 110px; padding-top: 30px; padding-bottom: 30px;}
+#newsContent{font-size: 13px; line-height: 20px;}
+#mid{padding: 10px 0 10px 0;}
+
+.commentTable{ background-color: #f3f3f3; display: block;border:none; padding-top: 10px; 
+ padding-bottom:10px; clear: both; font-size: 12px; padding-left: 10px;}
+.commentTable td{border: none;align-items: center; vertical-align: middle;  }
+#insertCommnetContent{padding-top: 5px;}
+.btn{padding-left: 10px;}
+#newUpComment{ width: 700px; background-color: #ececec; font-size: 12px; height: 100px;}
+#newUpComment form{vertical-align: middle;}
+label{display:inline-block;height: 25px; padding-top: 10px;  padding-left: 10px;}
+#content{margin-left: 10px; margin-bottom: 10px; float: left; }
+#updateCommnetCancel{clear: both;}

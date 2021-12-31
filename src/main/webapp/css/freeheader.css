@@ -1,0 +1,5 @@
+@charset "UTF-8";
+#fheader{margin: 0 auto; width: 700px;  }
+p{clear:both; border-bottom: 1px solid #c0c0c0; border-top: 1px solid #c0c0c0; padding: 15px 0 15px 0;
+font-size: 25px;font-weight: bold; text-align: left; margin-top: 10px; margin-bottom: 10px;}
+span{  font-size: 14px; }

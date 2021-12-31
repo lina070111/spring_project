@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis사용을 위해 DOCTYPE 추가 -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>	
+	<!-- 자동연결 해줄 VO 경로, 별명 지정(mapper에서 별명으로 접근하게됨, 전체 경로를 mapper에서 주면 복잡하잖음) -->	
+	<typeAliases>
+		<typeAlias type="com.spring.project.vo.FreeBoardVO" alias="freeboard"/>
+		<typeAlias type="com.spring.project.vo.NewsBoardVO" alias="newsboard"/>
+		<typeAlias type="com.spring.project.vo.CommentVO" alias="comment"/>
+		<typeAlias type="com.spring.project.vo.CommentNewsVO" alias="commentNews"/>
+		<typeAlias type="com.spring.project.vo.UserVO" alias="user"/>
+		<typeAlias type="com.spring.project.vo.SubscribeVO" alias="subscribe"/>
+	</typeAliases>
+	
+	<!-- 자동으로 연결해줄 해당VO경로의 sql문이 있는 경로 -->
+	<mappers>
+		<mapper resource="mappers/FreeBoardMapper.xml"/>
+		<mapper resource="mappers/NewsBoardMapper.xml"/>
+		<mapper resource="mappers/CommentMapper.xml"/>
+		<mapper resource="mappers/CommentNewsMapper.xml"/>
+		<mapper resource="mappers/UserMapper.xml"/>
+		<mapper resource="mappers/SubscribeMapper.xml"/>
+	</mappers>
+</configuration>

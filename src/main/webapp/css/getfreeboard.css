@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+table{width: 700px; border-top: 1px solid #444444;}
+th,td{height: 25px; line-height: 25px; font-size: 12px; padding-left: 15px; text-align: left; }
+.writer{background-color:#f3f3f3; border-top-color:#f3f3f3; padding-bottom: 10px; }
+th{background-color:#f3f3f3;font-weight: bold; font-size: 16px; padding-top: 10px;}
+td{border-bottom: 1px solid #444444;}
+a{text-decoration: none; color: #000000;}
+#fwarp{width: 700px; margin: 0 auto; }
+#mid{margin-bottom: 10px;}
+.btn{width:80px; height:25px;background-color: #0080ff; border: none; color: #fff;  }
+button.dBtn{width:80px; height:25px;background-color: #ececec; border: none; color: #727272; margin-top: 10px;  }
+.btn:hover{background-color: #0077ee;cursor:pointer;} 
+.dBtn:hover{background-color: #d4d4d4;cursor:pointer;}
+.commentTable{ background-color: #f3f3f3; display: block;border:none; padding-top: 10px; clear: both;}
+.commentTable td{border: none;align-items: center; vertical-align: middle;  }
+#newUpComment{ width: 500px; background-color: #ececec; font-size: 12px;width: 700px; height: 100px;}
+#newUpComment form{vertical-align: middle;}
+label{display:inline-block;height: 25px; padding-top: 10px;  padding-left: 10px;}
+#content{margin-left: 10px; margin-bottom: 10px; float: left; }
+#updateCommnet{width:80px; height:25px;background-color: #0080ff; border: none; color: #fff; margin-left: 10px; margin-top: 15px;}
+#updateCommnetCancel{clear: both;}
